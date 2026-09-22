@@ -17,7 +17,7 @@ start "prometheus --config.file=prometheus.yml" \
   "prometheus --config.file=prometheus.yml --storage.tsdb.path=./data-prom --web.listen-address=127.0.0.1:9090" \
   "logs/prometheus.log"
 start "grafana server --config=grafana/grafana.ini" \
-  "$(brew --prefix grafana)/bin/grafana server --config=grafana/grafana.ini --homepath=$(brew --prefix grafana)/share/grafana" \
+  "OC_DASHBOARD_DIR=$DIR $(brew --prefix grafana)/bin/grafana server --config=grafana/grafana.ini --homepath=$(brew --prefix grafana)/share/grafana" \
   "logs/grafana.log"
 
 echo

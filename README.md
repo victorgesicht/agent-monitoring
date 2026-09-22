@@ -1,9 +1,14 @@
 # opencode usage dashboard
 
+> AI coded for agent monitoring — tracks opencode agent usage (tokens,
+> sessions, activity) in a local Grafana dashboard.
+
+![Dashboard preview](screenshot/preview.png)
+
 Local Grafana dashboard (port **9999**) showing your opencode agent usage
 metrics, fed by Prometheus scraping a lightweight exporter that reads
 opencode's local SQLite store (`~/.local/share/opencode/opencode.db`,
-read-only).
+read-only). Runs locally, binds all services to `127.0.0.1` only.
 
 Stack (all Homebrew-installed, no Docker):
 
@@ -20,6 +25,10 @@ Stack (all Homebrew-installed, no Docker):
 To stop:
 
     pkill -f "exporter.py 9105"; pkill -f "prometheus --config.file=prometheus.yml"; pkill -f "grafana server --config=grafana/grafana.ini"
+
+`start.sh` exports `OC_DASHBOARD_DIR` (its own directory) so `grafana.ini`
+and the dashboard provider resolve paths relative to the repo — no hardcoded
+user paths in the config.
 
 ## Dashboard
 

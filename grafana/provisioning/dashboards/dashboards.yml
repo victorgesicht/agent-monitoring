@@ -8,4 +8,4 @@ providers:
     disableDeletion: false
     updateIntervalSeconds: 30
     options:
-      path: /Users/7mf/opencode-dashboard/grafana/dashboards
+      path: ${OC_DASHBOARD_DIR}/grafana/dashboards
