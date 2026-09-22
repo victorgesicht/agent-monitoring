@@ -1,0 +1,18 @@
+# runtime data — never commit (contains personal usage history)
+data-prom/
+logs/
+*.log
+
+# grafana runtime state
+grafana/data/
+grafana/logs/
+grafana/plugins/
+
+# os
+.DS_Store
+__pycache__/
+*.pyc
+
+# secrets
+*.env
+.env*
